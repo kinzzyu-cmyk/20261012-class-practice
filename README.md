@@ -1,19 +1,32 @@
-# :earth_americas: GDP dashboard template
+# 학생 성취 분석·학습지원 대시보드
 
-A simple Streamlit app showing the GDP of different countries in the world.
+사용자가 업로드한 학생 데이터를 이용해 집단별 성취 경향과 학습지원 규모를 확인하는 Streamlit 실습 앱입니다.
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://gdp-dashboard-template.streamlit.app/)
+## 실행 방법
 
-### How to run it on your own machine
+Codespaces의 기존 Python 환경에서 필요한 패키지를 설치합니다. 가상환경은 만들지 않습니다.
 
-1. Install the requirements
+```bash
+python -m pip install -r requirements.txt
+python -m streamlit run streamlit_app.py
+```
 
-   ```
-   $ pip install -r requirements.txt
-   ```
+Codespaces의 포트 탭에서 8501 포트를 열면 앱을 볼 수 있습니다.
 
-2. Run the app
+## 사용 방법
 
-   ```
-   $ streamlit run streamlit_app.py
-   ```
+- 처음에는 데이터가 표시되지 않습니다. CSV, TSV 또는 TXT 파일을 업로드 영역에 드래그 앤 드롭하세요.
+- 파일은 UTF-8 인코딩이며, 필요한 열은 앱의 안내에서 확인할 수 있습니다. 업로드 파일은 프로젝트에 저장하지 않고 공용 캐시도 사용하지 않습니다.
+- 왼쪽에서 성별, 인종·민족, 부모 학력, 급식 유형, 시험 준비 과정을 선택합니다.
+- 읽기 점수 분포 탭에서 시험 준비 과정 이수 여부별 점수 분포와 요약 통계를 비교합니다.
+- 수학·쓰기 학습지원 탭에서 기준 점수 미만인 학생 수와 두 과목 동시 지원 규모를 확인합니다.
+- 집단별 성취 비교 탭에서 평균 점수와 지원 비율을 확인하고 집계표를 내려받습니다.
+
+지원 기준은 기본적으로 각 과목 60점 미만이며 왼쪽에서 조절할 수 있습니다. 필터는 모든 탭에 적용됩니다.
+
+## 프로젝트 파일
+
+- `streamlit_app.py`: 앱 코드
+- `requirements.txt`: 앱에서 사용하는 Streamlit, pandas
+
+집단 차이는 관찰된 연관성입니다. 인과관계나 개인 능력을 단정하지 않으며, 실제 학습지원 결정에는 추가 정보를 함께 검토해야 합니다.
